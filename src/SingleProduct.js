@@ -45,13 +45,13 @@ const SingleProduct = () => {
         <div className="grid grid-two-column">
           {/* product images */}
           <div className="product_images">
-            <MyImage imgs={image}/>
+            <MyImage imgs={image} />
           </div>
 
           {/* product data  */}
           <div className="product-data">
             <h2>{name}</h2>
-            <Star stars={stars} reviews={reviews}/>
+            <Star stars={stars} reviews={reviews} />
             <p className="product-data-price">
               MRP:
               <del>
@@ -88,7 +88,10 @@ const SingleProduct = () => {
             <div className="product-data-info">
               <p>
                 Available:
-                <span> {stock > 0 ? `In Stock (${stock})` : "Not Available"}</span>
+                <span>
+                  {" "}
+                  {stock > 0 ? `In Stock (${stock})` : "Not Available"}
+                </span>
               </p>
               <p>
                 ID : <span> {id} </span>
@@ -97,9 +100,9 @@ const SingleProduct = () => {
                 Brand :<span> {company} </span>
               </p>
             </div>
-            
-            <hr/>
-            {stock > 0 && <AddToCart product={singleProduct}/>}
+
+            <hr />
+            {stock > 0 && <AddToCart product={singleProduct} />}
           </div>
         </div>
       </Container>
@@ -112,8 +115,8 @@ const Wrapper = styled.section`
     padding: 9rem 0;
   }
 
-  .product_images{
-    display:flex;
+  .product_images {
+    display: flex;
     align-items: center;
   }
 
