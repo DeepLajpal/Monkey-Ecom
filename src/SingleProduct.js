@@ -19,7 +19,7 @@ const SingleProduct = () => {
 
   useEffect(() => {
     getSingleProduct(`${url}?id=${id}`);
-  },[getSingleProduct, id]);
+  },[]);
 
   const {
     name,
