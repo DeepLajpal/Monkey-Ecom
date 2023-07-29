@@ -56,14 +56,14 @@ const Contact = () => {
             <input
               type="text"
               name="Username"
-              placeHolder="username"
+              placeholder="username"
               autoComplete="off"
               required
             />
             <input
               type="text"
               name="Email"
-              placeHolder="email"
+              placeholder="email"
               autoComplete="off"
               required
             />
@@ -72,7 +72,7 @@ const Contact = () => {
               name="Message"
               cols="30"
               rows="10"
-              placeHolder="Type your message!"
+              placeholder="Type your message!"
               autoComplete="off"
               required
             ></textarea>

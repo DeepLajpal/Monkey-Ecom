@@ -7,11 +7,11 @@ const CartAmountToggle = ({ amount, setIncrease, setDecrease }) => {
     <Wrapper>
       <div className="cart-button">
         <div className="amount-toggle">
-          <button onClick={() => setIncrease()}>
+          <button onClick={() => setDecrease()}>
             <FaMinus />
           </button>
           <div className="amount-style">{amount}</div>
-          <button onClick={() => setDecrease()}>
+          <button onClick={() => setIncrease()}>
             <FaPlus />
           </button>
         </div>
