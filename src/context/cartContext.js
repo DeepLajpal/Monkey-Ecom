@@ -12,7 +12,7 @@ const getLocalCartData = () => {
   const parsedData = JSON.parse(localCartData);
   if (!Array.isArray(parsedData)) return [];
   return parsedData;
-};
+}; 
 const initialState = {
   // cart: [],
   cart: getLocalCartData(),
