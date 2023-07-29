@@ -19,15 +19,13 @@ const SingleProduct = () => {
 
   useEffect(() => {
     getSingleProduct(`${url}?id=${id}`);
-  }, []);
+  },[getSingleProduct, id]);
 
   const {
     name,
     company,
     price,
     description,
-    category,
-    featured,
     stock,
     reviews,
     stars,
