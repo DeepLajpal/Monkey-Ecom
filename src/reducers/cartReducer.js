@@ -88,26 +88,46 @@ const cartReducer = (state, action) => {
         cart: tempCartItems2,
       };
 
-    case "TOTAL_CART_ITEM":
-      let updatedTotalCartItems = state.cart.reduce((initialVal, curElm) => {
-        initialVal = initialVal + curElm.amount;
-        return initialVal;
-      }, 0);
-      return {
-        ...state,
-        total_Items: updatedTotalCartItems,
-      };
+    // case "TOTAL_CART_ITEM":
+    //   let updatedTotalCartItems = state.cart.reduce((initialVal, curElm) => {
+    //     initialVal = initialVal + curElm.amount;
+    //     return initialVal;
+    //   }, 0);
+    //   return {
+    //     ...state,
+    //     total_Items: updatedTotalCartItems,
+    //   };
 
-    case "TOTAL_CART_PRICE":
-      let updatedTotalCartPrice = state.cart.reduce((initialVal, curElm) => {
-        initialVal = initialVal + curElm.amount * curElm.price;
-        return initialVal;
-      }, 0);
-      return {
-        ...state,
-        total_price:updatedTotalCartPrice
+    // case "TOTAL_CART_PRICE":
+    //   let updatedTotalCartPrice = state.cart.reduce((initialVal, curElm) => {
+    //     initialVal = initialVal + curElm.amount * curElm.price;
+    //     return initialVal;
+    //   }, 0);
+    //   return {
+    //     ...state,
+    //     total_price: updatedTotalCartPrice,
+    //   };
+
+    case "CART_TOTAL_ITEM_PRICE":
+      if (state.cart === null) {
+        // Handle the case when cart is null, maybe set total_Items and total_price to 0 or return the state as is.
+        return state;
       }
 
+      const { total_Items, total_price } = state.cart.reduce(
+        (accum, curElm) => {
+          const { amount, price } = curElm;
+          accum.total_Items += amount;
+          accum.total_price += amount * price;
+          return accum;
+        },
+        { total_Items: 0, total_price: 0 }
+      );
+      return {
+        ...state,
+        total_Items,
+        total_price,
+      };
 
     default:
       return state;
