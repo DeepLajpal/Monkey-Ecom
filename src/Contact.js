@@ -61,11 +61,11 @@ const Contact = () => {
               required
             />
             <input
-              type="text"
+              type="email"
               name="Email"
               placeholder="email"
               autoComplete="off"
-              required
+              // required
             />
             <textarea
               type="textarea"

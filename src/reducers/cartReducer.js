@@ -1,3 +1,4 @@
+
 const cartReducer = (state, action) => {
   switch (action.type) {
     case "ADD_TO_CART":
@@ -60,14 +61,17 @@ const cartReducer = (state, action) => {
 
     case "AMT_INCREASE":
       const tempCartItems = [...state.cart];
-      const updatedCartItemsIndex = state.cart.findIndex(
+      const selectedItemIndex = state.cart.findIndex(
         (product) => product.id === action.payload
       );
-      tempCartItems[updatedCartItemsIndex].amount =
-        tempCartItems[updatedCartItemsIndex].amount <
-        tempCartItems[updatedCartItemsIndex].maxStock
-          ? tempCartItems[updatedCartItemsIndex].amount + 1
-          : tempCartItems[updatedCartItemsIndex].amount;
+
+      if (
+        tempCartItems[selectedItemIndex].amount <
+        tempCartItems[selectedItemIndex].maxStock
+      ) {
+        tempCartItems[selectedItemIndex].amount =
+          tempCartItems[selectedItemIndex].amount + 1;
+      }
       return {
         ...state,
         cart: tempCartItems,
@@ -75,14 +79,13 @@ const cartReducer = (state, action) => {
 
     case "AMT_DECREASE":
       const tempCartItems2 = [...state.cart];
-      const updatedCartItemsIndex2 = state.cart.findIndex(
+      const selectedItemIndex2 = state.cart.findIndex(
         (product) => product.id === action.payload
       );
-      tempCartItems2[updatedCartItemsIndex2].amount =
-        tempCartItems2[updatedCartItemsIndex2].amount > 1
-          ? tempCartItems2[updatedCartItemsIndex2].amount - 1
-          : tempCartItems2[updatedCartItemsIndex2].amount;
-      console.log(tempCartItems2[updatedCartItemsIndex2]);
+      tempCartItems2[selectedItemIndex2].amount =
+        tempCartItems2[selectedItemIndex2].amount > 1
+          ? tempCartItems2[selectedItemIndex2].amount - 1
+          : tempCartItems2[selectedItemIndex2].amount;
       return {
         ...state,
         cart: tempCartItems2,
