@@ -15,6 +15,11 @@ const Header = () => {
     .logo {
       height: 5rem;
     }
+
+    @media only screen and (max-width:780px) {
+      
+        padding: 0 3.8000000000000007rem;
+    }
   `;
 
   return (
@@ -22,7 +27,7 @@ const Header = () => {
       <NavLink to="/">
         <img src="./images/logo.png" alt="this is a brand logo"></img>
       </NavLink>
-      <Nav/>
+      <Nav />
     </MainHeader>
   );
 };

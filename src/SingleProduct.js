@@ -10,6 +10,7 @@ import { TbTruckDelivery, TbReplace } from "react-icons/tb";
 import { MdSecurity } from "react-icons/md";
 import Star from "./components/Star";
 import AddToCart from "./components/AddToCart";
+import Loading from "./components/Loading";
 
 const SingleProduct = () => {
   const url = "https://api.pujakaitem.com/api/products/";
@@ -19,21 +20,13 @@ const SingleProduct = () => {
 
   useEffect(() => {
     getSingleProduct(`${url}?id=${id}`);
-  },[]);
+  }, []);
 
-  const {
-    name,
-    company,
-    price,
-    description,
-    stock,
-    reviews,
-    stars,
-    image,
-  } = singleProduct;
+  const { name, company, price, description, stock, reviews, stars, image } =
+    singleProduct;
 
   if (isSingleLoading) {
-    return <div>Loading.......</div>;
+    return <div><Loading/></div>;
   }
 
   return (
