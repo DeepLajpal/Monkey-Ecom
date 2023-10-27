@@ -4,6 +4,7 @@ import CartItems from "./components/CartItems";
 import { NavLink } from "react-router-dom";
 import { Button } from "./styles/Button";
 import FormatPrice from "./Helper/FormatPrice";
+import Loading from "./components/Loading";
 
 const Cart = () => {
   const { cart, clearCart, total_shipping, total_price } = useCartContext();
